@@ -28,7 +28,7 @@ LocalMind is an open-source Android and iOS chat app for LLMs. Run GGUF and Lite
 
 ## Vision
 
-Built for those who value privacy and performance, LocalMind runs models directly on your device or connects straight to your own inference servers like **LM Studio** or **Ollama**, as well as cloud providers like **OpenRouter** or **Requesty**. No middleware, no tracking, and no hidden subscriptions. Just you and your models.
+Built for those who value privacy and performance, LocalMind runs models directly on your device or connects straight to your own inference servers like **LM Studio** or **Ollama**, as well as cloud providers like **OpenRouter**, **Requesty** or **Cheaper Inference**. No middleware, no tracking, and no hidden subscriptions. Just you and your models.
 
 ## Supported Backends
 
@@ -39,6 +39,7 @@ Built for those who value privacy and performance, LocalMind runs models directl
 | [LM Studio](https://lmstudio.ai/) | Local | Includes the LM Studio model catalog |
 | [OpenRouter](https://openrouter.ai/) | Cloud | Bring your own API key |
 | [Requesty](https://www.requesty.ai/) | Cloud | Bring your own API key |
+| [Cheaper Inference](https://cheaperinference.com/) | Cloud | Bring your own API key |
 | OpenAI-compatible | Local or cloud | llama.cpp server, vLLM, LocalAI, Jan, and others |
 
 ## Key Features
@@ -46,7 +47,7 @@ Built for those who value privacy and performance, LocalMind runs models directl
 - **On-Device AI Support (iOS & Android)**: Private, fast, and offline. Run powerful GGUF and LiteRT models (Gemma, Qwen, DeepSeek R1) directly on your device via `llamadart` and `flutter_gemma`. No internet connection required.
 - **Model Context Protocol (MCP)**: Seamlessly connect to local or remote MCP servers. Grant models access to custom tools and integrations (e.g., file access, web APIs, shell actions) with fine-grained global and chat-level toggles.
 - **Model Manager**: Download curated models or download GGUF models directly from HuggingFace. Manage model files directly within the app.
-- **Multi-Server Connection**: Connect to Ollama, LM Studio, OpenRouter, Requesty, or any OpenAI-compatible API with real-time server health and speed monitoring.
+- **Multi-Server Connection**: Connect to Ollama, LM Studio, OpenRouter, Requesty, Cheaper Inference, or any OpenAI-compatible API with real-time server health and speed monitoring.
 - **Premium Chat Experience**: A polished, Claude/ChatGPT-inspired user interface featuring:
   - **Streaming Responses**: Real-time SSE support for instant generation.
   - **Markdown Rendering**: Beautiful rendering of text and code with rich syntax highlighting.

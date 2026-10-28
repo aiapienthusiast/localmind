@@ -105,6 +105,9 @@ class ServerApiService {
         case ServerType.requesty:
           models = await _fetchRequestyModels(response.data, server);
           break;
+        case ServerType.cheaperInference:
+          models = _parseOpenAICompatibleModels(response.data, server);
+          break;
         case ServerType.onDevice:
           models = [];
           break;
@@ -124,6 +127,7 @@ class ServerApiService {
   Future<Set<String>> fetchRunningModels(Server server) async {
     if (server.type == ServerType.openRouter ||
         server.type == ServerType.requesty ||
+        server.type == ServerType.cheaperInference ||
         server.type == ServerType.openAICompatible ||
         server.isOnDevice) {
       return {};
@@ -147,6 +151,7 @@ class ServerApiService {
   Future<void> loadModel(Server server, String modelId) async {
     if (server.type == ServerType.openRouter ||
         server.type == ServerType.requesty ||
+        server.type == ServerType.cheaperInference ||
         server.isOnDevice) {
       return;
     }
@@ -173,6 +178,7 @@ class ServerApiService {
         return;
       case ServerType.openRouter:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
       case ServerType.onDevice:
         break;
     }
@@ -185,6 +191,7 @@ class ServerApiService {
   }) async {
     if (server.type == ServerType.openRouter ||
         server.type == ServerType.requesty ||
+        server.type == ServerType.cheaperInference ||
         server.isOnDevice) {
       return null;
     }
@@ -234,6 +241,7 @@ class ServerApiService {
         return null;
       case ServerType.openRouter:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
       case ServerType.onDevice:
         return null;
     }
@@ -268,6 +276,7 @@ class ServerApiService {
   }) async {
     if (server.type == ServerType.openRouter ||
         server.type == ServerType.requesty ||
+        server.type == ServerType.cheaperInference ||
         server.isOnDevice) {
       return;
     }
@@ -298,6 +307,7 @@ class ServerApiService {
         return;
       case ServerType.openRouter:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
       case ServerType.onDevice:
         break;
     }

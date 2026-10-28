@@ -2175,6 +2175,12 @@ abstract class AppLocalizations {
   /// **'Connect through Requesty with a valid API key and keep this profile ready for model routing.'**
   String get add_server_requesty_subtitle;
 
+  /// Add server screen subtitle for Cheaper Inference
+  ///
+  /// In en, this message translates to:
+  /// **'Connect through Cheaper Inference with a valid API key and keep this profile ready for model routing.'**
+  String get add_server_cheaperinference_subtitle;
+
   /// Add server screen subtitle for endpoint-based servers
   ///
   /// In en, this message translates to:
@@ -2193,6 +2199,12 @@ abstract class AppLocalizations {
   /// **'Requesty'**
   String get server_type_requesty;
 
+  /// Cheaper Inference server type card title
+  ///
+  /// In en, this message translates to:
+  /// **'Cheaper Inference'**
+  String get server_type_cheaperinference;
+
   /// OpenRouter server type card subtitle
   ///
   /// In en, this message translates to:
@@ -2204,6 +2216,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'UNIFIED CLOUD'**
   String get server_type_requesty_sub;
+
+  /// Cheaper Inference server type card subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'UNIFIED CLOUD'**
+  String get server_type_cheaperinference_sub;
 
   /// Onboarding ready status
   ///
@@ -2307,6 +2325,12 @@ abstract class AppLocalizations {
   /// **'API Key required for Requesty'**
   String get api_key_required_requesty;
 
+  /// Validation: API key for Cheaper Inference
+  ///
+  /// In en, this message translates to:
+  /// **'API Key required for Cheaper Inference'**
+  String get api_key_required_cheaperinference;
+
   /// Validation: API key format
   ///
   /// In en, this message translates to:
@@ -2342,6 +2366,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'rqsty-...'**
   String get api_key_hint_requesty;
+
+  /// Cheaper Inference API key hint
+  ///
+  /// In en, this message translates to:
+  /// **'ci_live_...'**
+  String get api_key_hint_cheaperinference;
 
   /// Generic API key hint
   ///
@@ -2679,6 +2709,12 @@ abstract class AppLocalizations {
   /// **'Requesty'**
   String get server_type_requesty_display;
 
+  /// Cheaper Inference server type display
+  ///
+  /// In en, this message translates to:
+  /// **'Cheaper Inference'**
+  String get server_type_cheaperinference_display;
+
   /// On-device server type display
   ///
   /// In en, this message translates to:
@@ -2696,6 +2732,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'router.requesty.ai'**
   String get server_address_requesty;
+
+  /// Cheaper Inference default address
+  ///
+  /// In en, this message translates to:
+  /// **'api.cheaperinference.com'**
+  String get server_address_cheaperinference;
 
   /// On-device server address
   ///
@@ -4335,6 +4377,12 @@ abstract class AppLocalizations {
   /// **'Requesty requires an API key before testing.'**
   String get server_authentication_required_desc_requesty;
 
+  /// No description provided for @server_authentication_required_desc_requesty.
+  ///
+  /// In en, this message translates to:
+  /// **'Cheaper Inference requires an API key before testing.'**
+  String get server_authentication_required_desc_cheaperinference;
+
   /// No description provided for @server_authentication_optional_desc.
   ///
   /// In en, this message translates to:
@@ -5546,6 +5594,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'By connecting this provider, your chat messages and inputs will be sent to their servers. LocalMind does not track or store your conversations.'**
   String get requesty_disclosure;
+
+  /// Disclosure shown when connecting to Cheaper Inference about data being sent to their servers
+  ///
+  /// In en, this message translates to:
+  /// **'By connecting this provider, your chat messages and inputs will be sent to their servers. LocalMind does not track or store your conversations.'**
+  String get cheaperinference_disclosure;
 
   /// Welcome message shown when a cloud provider (e.g. OpenRouter) is active
   ///

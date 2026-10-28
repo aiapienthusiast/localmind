@@ -24,6 +24,8 @@ class AppConstants {
 
   static const String openRouterBaseUrl = 'https://openrouter.ai/api/v1';
   static const String requestyBaseUrl = 'https://router.requesty.ai/v1';
+  static const String cheaperInferenceBaseUrl =
+      'https://api.cheaperinference.com/v1';
   static const String ollamaCloudBaseUrl = 'https://ollama.com';
   static const int ollamaCloudDefaultPort = 443;
 

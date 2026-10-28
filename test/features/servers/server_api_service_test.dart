@@ -1244,6 +1244,61 @@ void main() {
     });
   });
 
+  group('ServerApiService - Cheaper Inference model parsing', () {
+    late Server cheaperInferenceServer;
+
+    setUp(() {
+      cheaperInferenceServer = Server(
+        id: 'test-cheaperinference',
+        name: 'Test Cheaper Inference',
+        type: ServerType.cheaperInference,
+        host: '',
+        port: 443,
+        apiKey: 'test-key',
+        createdAt: DateTime.now(),
+        lastConnectedAt: DateTime.now(),
+      );
+    });
+
+    test('uses the Cheaper Inference API endpoints', () {
+      expect(
+        cheaperInferenceServer.baseUrl,
+        'https://api.cheaperinference.com/v1',
+      );
+      expect(
+        cheaperInferenceServer.chatEndpoint,
+        'https://api.cheaperinference.com/v1/chat/completions',
+      );
+      expect(
+        cheaperInferenceServer.modelsEndpoint,
+        'https://api.cheaperinference.com/v1/models',
+      );
+      expect(cheaperInferenceServer.displayAddress, 'api.cheaperinference.com');
+    });
+
+    test('lists models from the OpenAI-compatible catalog', () async {
+      final service = ServerApiService(
+        Dio()
+          ..interceptors.add(
+            RoutingInterceptor({
+              'GET https://api.cheaperinference.com/v1/models': {
+                'object': 'list',
+                'data': [
+                  {'id': 'gpt-5.4-mini', 'object': 'model'},
+                  {'id': 'claude-sonnet-5', 'object': 'model'},
+                ],
+              },
+            }),
+          ),
+      );
+      final models = await service.fetchModels(cheaperInferenceServer);
+
+      expect(models.map((m) => m.id), ['gpt-5.4-mini', 'claude-sonnet-5']);
+      expect(models.first.serverType, ServerType.cheaperInference);
+      expect(models.first.pricingLabel, isNull);
+    });
+  });
+
   group('ServerApiService - LM Studio load model behavior', () {
     late Server lmStudioServer;
 

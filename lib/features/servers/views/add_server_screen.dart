@@ -44,10 +44,12 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
   bool get _requiresEndpoint =>
       _selectedType != ServerType.openRouter &&
       _selectedType != ServerType.requesty &&
+      _selectedType != ServerType.cheaperInference &&
       _selectedType != ServerType.ollamaCloud;
   bool get _requiresMandatoryApiKey =>
       _selectedType == ServerType.openRouter ||
       _selectedType == ServerType.requesty ||
+      _selectedType == ServerType.cheaperInference ||
       _selectedType == ServerType.ollamaCloud;
 
   String _lastHostScheme = '';
@@ -60,6 +62,7 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
       ServerType.ollamaCloud => AppConstants.ollamaCloudDefaultPort,
       ServerType.openRouter => 443,
       ServerType.requesty => 443,
+      ServerType.cheaperInference => 443,
       ServerType.onDevice => 0,
     };
   }
@@ -133,7 +136,9 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
       _testResult = null;
 
       final isHttps = isHttpsAddressInput(_hostController.text);
-      if (type == ServerType.openRouter || type == ServerType.requesty) {
+      if (type == ServerType.openRouter ||
+          type == ServerType.requesty ||
+          type == ServerType.cheaperInference) {
         _portController.text = '443';
       } else if (type == ServerType.ollamaCloud) {
         _portController.text = AppConstants.ollamaCloudDefaultPort.toString();
@@ -389,6 +394,8 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
             ? l10n.api_key_required_ollama_cloud
             : _selectedType == ServerType.requesty
             ? l10n.api_key_required_requesty
+            : _selectedType == ServerType.cheaperInference
+            ? l10n.api_key_required_cheaperinference
             : l10n.api_key_required_openrouter;
       }
       if (_selectedType == ServerType.openRouter &&
@@ -627,6 +634,8 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
               subtitle: _requiresMandatoryApiKey
                   ? (_selectedType == ServerType.requesty
                         ? l10n.server_authentication_required_desc_requesty
+                        : _selectedType == ServerType.cheaperInference
+                        ? l10n.server_authentication_required_desc_cheaperinference
                         : l10n.server_authentication_required_desc)
                   : l10n.server_authentication_optional_desc,
               child: Column(
@@ -642,6 +651,8 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
                                 ? l10n.api_key_hint_ollama_cloud
                                 : _selectedType == ServerType.requesty
                                 ? l10n.api_key_hint_requesty
+                                : _selectedType == ServerType.cheaperInference
+                                ? l10n.api_key_hint_cheaperinference
                                 : l10n.api_key_hint_openrouter)
                           : l10n.api_key_hint_generic,
                     ),
@@ -679,6 +690,8 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
                                   ? l10n.ollama_cloud_disclosure
                                   : _selectedType == ServerType.requesty
                                   ? l10n.requesty_disclosure
+                                  : _selectedType == ServerType.cheaperInference
+                                  ? l10n.cheaperinference_disclosure
                                   : l10n.openrouter_disclosure,
                               style: theme.textTheme.bodySmall?.copyWith(
                                 color: theme.colorScheme.onSurface.withValues(
@@ -978,6 +991,7 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
       ServerType.ollamaCloud => l10n.server_type_ollama_cloud,
       ServerType.openRouter => l10n.server_type_openrouter,
       ServerType.requesty => l10n.server_type_requesty,
+      ServerType.cheaperInference => l10n.server_type_cheaperinference,
       ServerType.onDevice => l10n.server_type_on_device_display,
     };
   }
@@ -995,6 +1009,8 @@ class _AddServerScreenState extends ConsumerState<AddServerScreen> {
         return l10n.add_server_openrouter_subtitle;
       case ServerType.requesty:
         return l10n.add_server_requesty_subtitle;
+      case ServerType.cheaperInference:
+        return l10n.add_server_cheaperinference_subtitle;
     }
   }
 }

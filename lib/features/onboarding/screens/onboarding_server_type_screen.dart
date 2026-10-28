@@ -247,6 +247,22 @@ class _OnboardingServerTypeScreenState
                                     ),
                                     theme: theme,
                                   ),
+                                  _buildServerCard(
+                                    type: ServerType.cheaperInference,
+                                    title: l10n.server_type_cheaperinference,
+                                    subtitle:
+                                        l10n.server_type_cheaperinference_sub,
+                                    iconWidget: ServerLogo(
+                                      type: ServerType.cheaperInference,
+                                      size: 20,
+                                      iconColor:
+                                          _selectedType ==
+                                              ServerType.cheaperInference
+                                          ? theme.colorScheme.primary
+                                          : theme.colorScheme.onSurface,
+                                    ),
+                                    theme: theme,
+                                  ),
                                 ],
                               ),
                               const SizedBox(height: 12),

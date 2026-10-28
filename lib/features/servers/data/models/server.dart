@@ -52,6 +52,9 @@ String displayServerAddress(
   if (type == ServerType.requesty) {
     return 'router.requesty.ai';
   }
+  if (type == ServerType.cheaperInference) {
+    return 'api.cheaperinference.com';
+  }
   if (type == ServerType.ollamaCloud) {
     return 'ollama.com';
   }
@@ -92,6 +95,9 @@ String buildServerBaseUrl(String host, int port, ServerType type) {
   }
   if (type == ServerType.requesty) {
     return AppConstants.requestyBaseUrl;
+  }
+  if (type == ServerType.cheaperInference) {
+    return AppConstants.cheaperInferenceBaseUrl;
   }
   if (type == ServerType.ollamaCloud) {
     return AppConstants.ollamaCloudBaseUrl;
@@ -217,6 +223,7 @@ class Server {
         return '$baseUrl${_apiPath('/api/chat')}';
       case ServerType.openRouter:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
         return '$baseUrl/chat/completions';
       case ServerType.onDevice:
         return '';
@@ -234,6 +241,7 @@ class Server {
         return '$baseUrl${_apiPath('/api/tags')}';
       case ServerType.openRouter:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
         return '$baseUrl/models';
       case ServerType.onDevice:
         return '';
@@ -252,6 +260,7 @@ class Server {
       case ServerType.openRouter:
       case ServerType.onDevice:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
         return '';
     }
   }
@@ -266,6 +275,7 @@ class Server {
       case ServerType.openRouter:
       case ServerType.onDevice:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
         return '';
     }
   }
@@ -282,6 +292,7 @@ class Server {
       case ServerType.openRouter:
       case ServerType.onDevice:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
         return '';
     }
   }
@@ -298,6 +309,7 @@ class Server {
       case ServerType.openRouter:
       case ServerType.onDevice:
       case ServerType.requesty:
+      case ServerType.cheaperInference:
         return '';
     }
   }

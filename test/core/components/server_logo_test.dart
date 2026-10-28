@@ -27,6 +27,9 @@ void main() {
 
       expect(ServerType.onDevice.logoAsset, isNull);
       expect(ServerType.onDevice.hasLogo, isFalse);
+
+      expect(ServerType.cheaperInference.logoAsset, isNull);
+      expect(ServerType.cheaperInference.hasLogo, isFalse);
     });
   });
 
